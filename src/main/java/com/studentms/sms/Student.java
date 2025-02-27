@@ -3,14 +3,14 @@ package com.studentms.sms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student {
+// PARENT CLASS
+abstract class Student {
     String name;
     String studentID;
     int age;
     List<Float> grades = new ArrayList<>();
     
-    // Establish getters and setters to access private attributes -> encapsulation
-
+    // SETTERS & GETTERS
     public void setName(String newName) { this.name = newName; }
     public String getName() { return this.name; }
 
@@ -23,26 +23,10 @@ public class Student {
     public void setGrades(List<Float> newGrades) { this.grades = newGrades; }
     public List<Float> getGrades() { return this.grades; }
 
-    // FIRST METHOD : ADD GRADES
 
-    public void addGrade(float grade) {
-        grades.add(grade);
-    }
+    // ABSTRACT METHOD 1 : ADD GRADES
+    public abstract void addGrade(float grade);
 
-
-    // SECOND METHOD : GET AVERAGE GRADE
-
-    // Obtain sum of listed grades
-    public float getGradeSum() {
-        float sum = 0;
-        for (int i = 0; i < grades.size(); i++) {
-            sum += grades.get(i);
-        }
-        return sum;
-    }
-
-    // Divide sum by amount of grades
-    public float getAverageGrade() {
-         return getGradeSum() / grades.size();
-    }
+    // ABSTRACT METHOD 2 : GET AVERAGE GRADE
+    public abstract float getAverageGrade();
 }
